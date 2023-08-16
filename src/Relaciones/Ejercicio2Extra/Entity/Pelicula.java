@@ -31,20 +31,20 @@ public class Pelicula {
 		this.director = director;
 	}
 
-	public String getDuración() {
+	public String getDuracion() {
 		return duracion;
 	}
 
-	public void setDuración(String duración) {
+	public void setDuracion(String duración) {
 		this.duracion = duración + " MINUTOS";
 	}
 
 	public int getEdadMin() {
-		return edadmin;
+		return edadMin;
 	}
 
 	public void setEdadMin(int edadmin) {
-		this.edadmin = edadmin;
+		this.edadMin = edadmin;
 	}
 	
 	
