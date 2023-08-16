@@ -35,8 +35,8 @@ public class Pelicula {
 		return duracion;
 	}
 
-	public void setDuracion(String duración) {
-		this.duracion = duración + " MINUTOS";
+	public void setDuracion(String duracion) {
+		this.duracion = duracion + " MINUTOS";
 	}
 
 	public int getEdadMin() {
