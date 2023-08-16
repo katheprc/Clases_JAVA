@@ -8,7 +8,7 @@ public class ServiceCine {
 	Scanner leer = new Scanner(System.in);
 	
 	Cine cine = new Cine();
-	
+		
 	public void menu() {
 		
 		int opc;
@@ -40,9 +40,10 @@ public class ServiceCine {
 			}
 			
 		} while (opc != 0);
-		
+
 	}
 	
-	
+
 	
 }
+

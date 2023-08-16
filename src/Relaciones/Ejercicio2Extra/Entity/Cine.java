@@ -10,7 +10,7 @@ public class Cine {
 
 	Scanner leer = new Scanner(System.in);
 
-	int precio = 1000;
+	int precio = 100;
 
 	public Cine() {
 
@@ -18,14 +18,14 @@ public class Cine {
 		adicionarPeli();
 
 	}
-	
+
 	public int getPrecio() {
 		return precio;
 	}
 
 	public void adicionarSala() {
 
-		for (int i = 0; i < 3; i++) {
+		for (int aux = 0; aux < 3; aux++) {
 
 			listaSalas.add(crearSala());
 
@@ -44,9 +44,9 @@ public class Cine {
 
 	public void adicionarPeli() {
 
-		Pelicula pelicula = new Pelicula("LA MONJA", "HARDY", "90", 13);
+		Pelicula pelicula = new Pelicula("LA MONJA", "C. HARDY", "96", 13);
 		listaPelis.add(pelicula);
-		
+
 		for (Sala sala : listaSalas) {
 			if (sala.getPelicula() == null) {
 				sala.setPelicula(pelicula);
@@ -54,9 +54,9 @@ public class Cine {
 			}
 		}
 
-		Pelicula pelicula2 = new Pelicula("EL CONJURO", "WAN", "112", 16);
+		Pelicula pelicula2 = new Pelicula("EL CONJURO", "J. WAN", "112", 16);
 		listaPelis.add(pelicula2);
-		
+
 		for (Sala sala : listaSalas) {
 			if (sala.getPelicula() == null) {
 				sala.setPelicula(pelicula2);
@@ -64,9 +64,9 @@ public class Cine {
 			}
 		}
 
-		Pelicula pelicula3 = new Pelicula("ANNABELLE", "LEONETTI", "98", 18);
+		Pelicula pelicula3 = new Pelicula("ANNABELLE", "J. LEONETTI", "98", 18);
 		listaPelis.add(pelicula3);
-		
+
 		for (Sala sala : listaSalas) {
 			if (sala.getPelicula() == null) {
 				sala.setPelicula(pelicula3);
@@ -75,16 +75,16 @@ public class Cine {
 		}
 
 	}
-	
+
 	public void verListaPelis() {
 
 		for (Pelicula pelicula : listaPelis) {
 
-			System.out.println("- - - - - - - - - - - - -");
+			System.out.println("- - - - - - - - - - - - - - - - -");
 			System.out.println("Pelicula: " + pelicula.getTitulo());
 			System.out.println("Director: " + pelicula.getDirector());
 			System.out.println("Duración: " + pelicula.getDuracion());
-			System.out.println("Edad minima: " + pelicula.getEdadMin());
+			System.out.println("Edad mínima: " + pelicula.getEdadMin());
 
 			for (Sala sala : listaSalas) {
 				if (sala.getPelicula() == pelicula) {
@@ -92,7 +92,7 @@ public class Cine {
 				}
 			}
 
-			System.out.println("- - - - - - - - - - - - -");
+			System.out.println("- - - - - - - - - - - - - - - - -");
 
 		}
 
@@ -102,11 +102,11 @@ public class Cine {
 
 		for (Sala sala : listaSalas) {
 
-			System.out.println("- - - - - - - - - - - - -");
+			System.out.println("- - - - - - - - - - - - - - - - -");
 			System.out
 					.println("Sala: " + (listaSalas.indexOf(sala) + 1) + " (" + sala.getPelicula().getTitulo() + ") ");
 			sala.mostrarSala();
-			System.out.println("- - - - - - - - - - - - -");
+			System.out.println("- - - - - - - - - - - - - - - - -");
 
 		}
 
@@ -116,18 +116,18 @@ public class Cine {
 
 		verListaPelis();
 
-		System.out.println("Ingrese el nombre de la pelicula: ");
+		System.out.println("Ingrese el nombre de la película");
 		String nombre = leer.nextLine().toUpperCase();
 		boolean encontrado = false;
 
 		for (Sala sala : listaSalas) {
 
 			if (sala.getPelicula().getTitulo().equals(nombre)) {
-				System.out.println("- - - - - - - - - - - - -");
+				System.out.println("- - - - - - - - - - - - - - - - -");
 				System.out.println(
 						"Sala: " + (listaSalas.indexOf(sala) + 1) + " (" + sala.getPelicula().getTitulo() + ") ");
 				sala.mostrarSala();
-				System.out.println("- - - - - - - - - - - - -");
+				System.out.println("- - - - - - - - - - - - - - - - -");
 				encontrado = true;
 				return listaSalas.indexOf(sala);
 			}
@@ -135,7 +135,7 @@ public class Cine {
 		}
 
 		if (encontrado == false) {
-			System.out.println("Pelicula no encontrada");
+			System.out.println("Película no encontrada.");
 		}
 
 		return -1;
@@ -146,14 +146,14 @@ public class Cine {
 
 		Espectador espectador = new Espectador();
 
-		System.out.println("Ingrese el nombre de la persona");
+		System.out.println("Ingrese el nombre de la persona: ");
 		espectador.setNombre(leer.nextLine());
-		
-		System.out.println("Ingrese edad de la persona");
+
+		System.out.println("Ingrese edad de la persona: ");
 		espectador.setEdad(leer.nextInt());
 		leer.nextLine();
-		
-		System.out.println("Ingrese dinero de la persona");
+
+		System.out.println("Ingrese dinero de la persona: ");
 		espectador.setDinero(leer.nextInt());
 		leer.nextLine();
 
@@ -170,3 +170,4 @@ public class Cine {
 
 	}
 }
+

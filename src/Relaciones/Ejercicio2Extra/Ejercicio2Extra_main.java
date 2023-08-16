@@ -32,12 +32,11 @@ import Relaciones.Ejercicio2Extra.Service.ServiceCine;
 public class Ejercicio2Extra_main {
 
 	public static void main(String[] args) {
-
 		
 		ServiceCine srvCine = new ServiceCine();
+		
 		srvCine.menu();
 		
-		
 	}
-
+	
 }
