@@ -47,10 +47,5 @@ public class Pelicula {
 		this.edadMin = edadMin;
 	}
 
-	@Override
-	public String toString() {
-		return "Pelicula [titulo=" + titulo + ", director=" + director + ", duracion=" + duracion + ", edadMin="
-				+ edadMin + "]";
-	}
 			
 }

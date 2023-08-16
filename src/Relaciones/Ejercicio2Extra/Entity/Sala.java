@@ -18,7 +18,7 @@ public class Sala {
 		
 		for(int aux = 7; aux <= 0; aux--) {
 			
-			for(int aux2 = 0; aux2 < 6; aux++) {
+			for(int aux2 = 0; aux2 < 6; aux2++) {
 				
 				sala[aux][aux2] = crearAsiento(aux+1, aux2+1);
 				
@@ -33,6 +33,7 @@ public class Sala {
 		Asiento asiento = new Asiento(fila, columna);
 		
 		return asiento;
+		
 	}
 	
 	public void mostrarSala() {
@@ -47,11 +48,25 @@ public class Sala {
 			
 			System.out.println("");
 			
-		}
-		
+		}	
 		
 	}
 	
-
+	public void asignarAsiento() {
+		
+		int aux = (int) (Math.random()*7)+1;
+		
+		int aux2 = (int) (Math.random()*5)+1;
+		
+//		if(sala[aux][aux2].getOcupado() == false) {
+//			System.out.println("Asiento asignado en: " + sala[aux][aux2].fila + sala[aux][aux2].columna);
+//			sala[aux][aux2].setOcupado(true);
+//		}
+		
+		System.out.println("Asiento asignado en: " + sala[aux][aux2].fila + sala[aux][aux2].columna);
+		sala[aux][aux2].setOcupado(true);
+		
+	}
+	
 }
 

@@ -27,17 +27,15 @@ cada asiento o solo las X y espacios vacíos.*/
 
 package Relaciones.Ejercicio2Extra;
 
-import Relaciones.Ejercicio2Extra.Entity.Sala;
+import Relaciones.Ejercicio2Extra.Service.ServiceCine;
 
 public class Ejercicio2Extra_main {
 
 	public static void main(String[] args) {
 
-		Sala sala = new Sala();
 		
-		sala.crearSala();
-		
-		sala.mostrarSala();
+		ServiceCine srvCine = new ServiceCine();
+		srvCine.menu();
 		
 		
 	}
