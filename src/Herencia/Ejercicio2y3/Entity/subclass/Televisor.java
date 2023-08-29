@@ -77,5 +77,9 @@ public class Televisor extends Electrodomestico {
 		
 
 	}
+	
+	public void stringTele() {
+		System.out.println("Tipo: Televisor || Pulgadas: " + pulgadas + " || Sintonizador: " + sintonizador + " || Color: " + getColor() + " || Precio: " + getPrecio() + " || Peso: " + getPeso() + " || Consumo: " + getConsumo());
+	}
 
 }

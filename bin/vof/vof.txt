@@ -1,0 +1,29 @@
+if (condición) ---------->se busca que la logica sea verdadera a pesar del resultado ser falso.
+
+si yo te digo que hoy llueve, es verdadero, pero si te lo niego es falso
+
+HoyLlueve = true
+!HoyLlueve = false
+
+---------------------------------
+
+HoyLlueve = true;            
+              
+if (HoyLlueve)   -> entrás al bloque porque es true                                           ==if(hoyllueve == true)  me estas diciendo la verdad
+
+if(!HoyLlueve)   -> no entras, ya que te estoy negando el true                                == if (hoyllueve == false)  me estas diciendo mentira
+----------------------------------------
+
+HoyLlueve = false; 
+
+if(HoyLlueve)   -> no entra porque es falsa y va directo al else                               == if(hoyllueve == true) es falso
+
+if(!HoyLlueve)  -> entra porque es verdadero, yo al decirte que hoy llueve negando el false    == if(hoyllueve == false) es verdadero
+
+----------------------------------------------
+
+
+
+if ((2+2) == 4)    =  true, me estasdicindo la verdad
+
+if (!((2+2) == 4)) =  false, me estas mintiendo

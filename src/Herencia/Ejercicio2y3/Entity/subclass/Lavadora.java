@@ -45,6 +45,10 @@ public class Lavadora extends Electrodomestico {
 		}
 		
 	}
+
+	public void stringLava() {
+		System.out.println("Tipo: Lavadora || Carga: " + carga + " || Color: " + getColor() + " || Precio: " + getPrecio() + " || Peso: " + getPeso() + " || Consumo: " + getConsumo());
+	}
 	
 	
 }
