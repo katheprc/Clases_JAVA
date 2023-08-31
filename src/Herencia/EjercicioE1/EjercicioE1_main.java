@@ -1,10 +1,13 @@
 package Herencia.EjercicioE1;
 
-public class EjercicioE1_main {
+import Herencia.EjercicioE1.service.ServiceAlquiler;
+
+public class EjercicioE1_main implements ServiceAlquiler{
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
+		ServiceAlquiler.menu();
+		
 	}
 
 }

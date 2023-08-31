@@ -22,5 +22,12 @@ public class Motor extends Barco{
 	public void setPotenciaEnCV(int potenciaEnCV) {
 		this.potenciaEnCV = potenciaEnCV;
 	}
+
+	@Override
+	public String toString() {
+		return "Motor [potenciaEnCV=" + potenciaEnCV + "matricula=" + getMatricula() + ", eslora=" + getEslora() + ", anoFabricacion=" + getAnoFabricacion() + "]";
+	}
 		
+	
+	
 }

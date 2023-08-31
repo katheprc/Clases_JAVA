@@ -22,5 +22,12 @@ public class Velero extends Barco{
 	public void setNumMastiles(int numMastiles) {
 		this.numMastiles = numMastiles;
 	}
+
+	@Override
+	public String toString() {
+		return "Velero [numMastiles=" + numMastiles + "matricula=" + getMatricula() + ", eslora=" + getEslora() + ", anoFabricacion=" + getAnoFabricacion() +"]";
+	}
+	
+	
 	
 }

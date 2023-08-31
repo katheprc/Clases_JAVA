@@ -31,5 +31,12 @@ public class YateLujo extends Barco{
 	public void setNumCamarotes(int numCamarotes) {
 		this.numCamarotes = numCamarotes;
 	}
+
+	@Override
+	public String toString() {
+		return "YateLujo [potenciaEnCV=" + potenciaEnCV + ", numCamarotes=" + numCamarotes + "matricula=" + getMatricula() + ", eslora=" + getEslora() + ", anoFabricacion=" + getAnoFabricacion() +"]";
+	}
+	
+	
 	
 }

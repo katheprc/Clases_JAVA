@@ -189,27 +189,51 @@ public interface ServiceAlquiler {
 
 			if (alquiler.getFechaAlq().compareTo(date) <= 0) {
 				alquiler.setFechaDev(ano, mes, dia);
-				System.out.println("total " + alquiler.getDiasTotal());
+				System.out.println("total de dias alquilado" + alquiler.getDiasTotal());
 				break;
 			} else {
 				System.out.println("Fecha de devolucion debe ser posterior a la fecha de alquiler (hoy)");
 			}
 
 		} while (true);
-		
+
 		alquiler.calcularTotal();
-		
+
 		listaAlquileres.add(alquiler);
 
 	}
 
 	public static void mostrarAlquiler() {
-		// TODO Auto-generated method stub
+
+		System.out.println("Ingrese el DNI de la persona a buscar su alquiler: ");
+
+		String dni = leer.nextLine();
+
+		boolean encontrado = false;
+
+		for (Alquiler alquiler : listaAlquileres) {
+
+			if (alquiler.getDni().equals(dni)) {
+				encontrado = true;
+				alquiler.String();
+				break;
+			}
+
+		}
+
+		if (!encontrado) {
+			System.out.println("Intente nuevamente, DNI no encontrado.");
+		}
 
 	}
 
 	public static void mostrarTodo() {
-		// TODO Auto-generated method stub
+
+		for (Alquiler alquiler : listaAlquileres) {
+
+			alquiler.String();
+			
+		}
 
 	}
 
