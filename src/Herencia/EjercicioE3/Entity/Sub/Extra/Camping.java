@@ -32,5 +32,13 @@ public class Camping extends ExtraHotelero{
 	public void setResto(boolean resto) {
 		this.resto = resto;
 	}
+	@Override
+	public String toString() {
+		return "Camping [cantCarpas=" + cantCarpas + ", cantBano=" + cantBano + ", resto=" + resto + ", privado="
+				+ privado + ", m2=" + m2 + ", nombre=" + nombre + ", direccion=" + direccion + ", localidad="
+				+ localidad + ", gerente=" + gerente + "]";
+	}
+	
+	
 	
 }

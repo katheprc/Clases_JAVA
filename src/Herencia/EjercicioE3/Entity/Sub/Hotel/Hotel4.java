@@ -38,6 +38,16 @@ public class Hotel4 extends Hotel{
 
 	public void setCapResto(int capResto) {
 		this.capResto = capResto;
+	}
+
+	@Override
+	public String toString() {
+		return "Hotel4 [gimnasio=" + gimnasio + ", nombreResto=" + nombreResto + ", capResto=" + capResto + ", cantHab="
+				+ cantHab + ", cantCamas=" + cantCamas + ", cantPisos=" + cantPisos + ", precioHab=" + precioHab
+				+ ", nombre=" + nombre + ", direccion=" + direccion + ", localidad=" + localidad + ", gerente="
+				+ gerente + "]";
 	}	
+	
+	
 	
 }

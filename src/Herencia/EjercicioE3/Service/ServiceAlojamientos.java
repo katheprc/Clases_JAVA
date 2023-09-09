@@ -3,7 +3,10 @@ package Herencia.EjercicioE3.Service;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import Herencia.EjercicioE3.Entity.Sub.Extra.Camping;
+import Herencia.EjercicioE3.Entity.Sub.Extra.Residencia;
 import Herencia.EjercicioE3.Entity.Sub.Hotel.*;
+import Herencia.EjercicioE3.Entity.Super.Hotel;
 import Herencia.EjercicioE3.Entity.SuperSuper.Alojamiento;
 
 public interface ServiceAlojamientos {
@@ -106,6 +109,7 @@ public interface ServiceAlojamientos {
 				System.out.println("");
 				System.out.println("1 - Hotel 4 estrellas");
 				System.out.println("2 - Hotel 5 estrellas");
+				System.out.println("0 - Salir");
 				System.out.println("");
 				System.out.println("- - - - - - - - - - - - - -");
 				System.out.println("");
@@ -117,7 +121,7 @@ public interface ServiceAlojamientos {
 			} while (opc < 1 || opc > 2);
 
 			int cantHab, cantCamas, cantPisos;
-			double precioHab;
+			double precioHab = 50;
 
 			System.out.println("Ingrese cantidad de habitaciones");
 			cantHab = leer.nextInt();
@@ -130,11 +134,7 @@ public interface ServiceAlojamientos {
 			System.out.println("Ingrese cantidad de pisos");
 			cantPisos = leer.nextInt();
 			leer.nextLine();
-
-			System.out.println("Ingrese el precio de la habitacion");
-			precioHab = leer.nextDouble();
-			leer.nextLine();
-
+			
 			System.out.println("Tipo de gimnasio A/B");
 			String gym = leer.nextLine();
 
@@ -154,6 +154,10 @@ public interface ServiceAlojamientos {
 			System.out.println("Ingrese capacidad del restaurant");
 			capResto = leer.nextInt();
 			leer.nextLine();
+			
+			
+
+			precioHab = leer.nextDouble()
 
 			switch (opc) {
 
@@ -184,21 +188,167 @@ public interface ServiceAlojamientos {
 				listaAlojamientos.add(hotel5);
 				break;
 
+			case 0: break;
+				
 			default:
-				System.out.println("Error, ingrese opción nuevamente");
+				System.out.println("Error, intente nuevamente");
 			}
 
+		case 2: 
+			
+			boolean privado;
+			int m2;
+			
+			do {
+
+				System.out.println("- - - - - - - - - - - - - -");
+				System.out.println("");
+				System.out.println("1 - Camping");
+				System.out.println("2 - Residencia");
+				System.out.println("0 - Salir");
+				System.out.println("");
+				System.out.println("- - - - - - - - - - - - - -");
+				System.out.println("");
+				System.out.println("Ingrese una opción");
+
+				opc = leer.nextInt();
+				leer.nextLine();
+
+			} while (opc < 1 || opc > 2);
+			
+			System.out.println("Privado o público? 0/1");
+			String pop = leer.nextLine();
+
+			if (pop.equalsIgnoreCase("0") || pop.equalsIgnoreCase("1")) {
+				if (pop.equalsIgnoreCase("1")) {
+					privado = true;
+				} else {
+					privado = false;
+				}
+			} else {
+				privado = false;
+			}
+			
+			System.out.println("Ingrese los metros cuadrados:");
+			m2 = leer.nextInt(); leer.nextLine();
+			
+			switch(opc) {
+			
+			case 1: 
+				int cantCarpas, cantBano;
+				boolean resto;
+				
+				System.out.println("Ingrese cantidad de carpas; ");
+				cantCarpas = leer.nextInt(); leer.nextLine();
+				
+				System.out.println("Ingrese cantidad de baños");
+				cantBano = leer.nextInt(); leer.nextLine();
+				
+				System.out.println("Tiene restaurant? 0/1");
+				String restoo = leer.nextLine();
+
+				if (restoo.equalsIgnoreCase("0") || restoo.equalsIgnoreCase("1")) {
+					if (restoo.equalsIgnoreCase("1")) {
+						resto = true;
+					} else {
+						resto = false;
+					}
+				} else {
+					resto = false;
+				}
+				
+				Camping camping = new Camping(nombre, direccion, localidad, gerente, privado, m2, cantCarpas, cantBano, resto);
+				listaAlojamientos.add(camping);
+				break;
+				
+				
+			case 2: 
+				
+				int cantHabR;
+				boolean descuento, campoDeport;
+				
+				System.out.println("Ingrese cantidad de habitaciones");
+				cantHabR = leer.nextInt(); leer.nextLine();
+				
+				
+				System.out.println("Tiene descuento por gremio? 0/1");
+				String desc = leer.nextLine();
+
+				if (desc.equalsIgnoreCase("0") || desc.equalsIgnoreCase("1")) {
+					if (desc.equalsIgnoreCase("1")) {
+						descuento = true;
+					} else {
+						descuento = false;
+					}
+				} else {
+					descuento = false;
+				}
+				
+				
+				System.out.println("Tiene campo deportivo? 0/1");
+				String camp = leer.nextLine();
+
+				if (camp.equalsIgnoreCase("0") || camp.equalsIgnoreCase("1")) {
+					if (camp.equalsIgnoreCase("1")) {
+						campoDeport = true;
+					} else {
+						campoDeport = false;
+					}
+				} else {
+					campoDeport = false;
+				}
+				
+				Residencia resi = new Residencia( nombre,  direccion,  localidad,  gerente,  privado,  m2,
+						 cantHabR,  descuento,  campoDeport);
+				
+				listaAlojamientos.add(resi);
+				break;
+			
+			case 0: break;
+			
+			default:
+				System.out.println("Error, intente nuevamente");
+			
+			}
+			
+			
+			
 		}
 
 	}
 
 	public static void verTodo() {
-		// TODO Auto-generated method stub
 
+		for(Alojamiento alojamiento : listaAlojamientos) {
+			if(alojamiento instanceof Hotel4) {
+				
+				((Hotel4)alojamiento).toString();
+				
+			} else if(alojamiento instanceof Hotel5) {
+				
+				((Hotel5)alojamiento).toString();
+				
+			} else if(alojamiento instanceof Camping) {
+				
+				((Camping)alojamiento).toString();
+				
+			} else {
+				
+				((Residencia)alojamiento).toString();
+				
+			}
+		}
+		
 	}
 
 	public static void verHotelCaroBarato() {
-		// TODO Auto-generated method stub
+		for(Alojamiento alojamiento : listaAlojamientos) {
+			if(alojamiento instanceof Hotel) {
+				
+				((Hotel4)alojamiento).toString();
+				
+			}
+		}
 
 	}
 

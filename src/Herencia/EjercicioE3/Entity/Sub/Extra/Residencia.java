@@ -38,5 +38,14 @@ public class Residencia extends ExtraHotelero{
 	public void setCampoDeport(boolean campoDeport) {
 		this.campoDeport = campoDeport;
 	}
+
+	@Override
+	public String toString() {
+		return "Residencia [cantHab=" + cantHab + ", descuento=" + descuento + ", campoDeport=" + campoDeport
+				+ ", privado=" + privado + ", m2=" + m2 + ", nombre=" + nombre + ", direccion=" + direccion
+				+ ", localidad=" + localidad + ", gerente=" + gerente + "]";
+	}
+	
+	
 	
 }

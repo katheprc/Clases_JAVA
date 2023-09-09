@@ -36,5 +36,15 @@ public class Hotel5 extends Hotel4{
 	public void setCantLimo(int cantLimo) {
 		this.cantLimo = cantLimo;
 	}
+
+	@Override
+	public String toString() {
+		return "Hotel5 [cantConf=" + cantConf + ", cantSuites=" + cantSuites + ", cantLimo=" + cantLimo + ", gimnasio="
+				+ gimnasio + ", nombreResto=" + nombreResto + ", capResto=" + capResto + ", cantHab=" + cantHab
+				+ ", cantCamas=" + cantCamas + ", cantPisos=" + cantPisos + ", precioHab=" + precioHab + ", nombre="
+				+ nombre + ", direccion=" + direccion + ", localidad=" + localidad + ", gerente=" + gerente + "]";
+	}
+	
+	
 	
 }
