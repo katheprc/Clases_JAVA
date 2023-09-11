@@ -1,9 +1,13 @@
 package Herencia.EjercicioE3;
 
-public class EjercicioE3_main {
+import Herencia.EjercicioE3.Service.ServiceAlojamientos;
+
+public class EjercicioE3_main implements ServiceAlojamientos{
 
 	public static void main(String[] args) {
 
+		ServiceAlojamientos.menu();
+		
 	}
 
 }

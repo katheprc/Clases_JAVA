@@ -1,5 +1,7 @@
 package Herencia.EjercicioE3.Entity.Super;
 
+import java.util.Comparator;
+
 import Herencia.EjercicioE3.Entity.SuperSuper.Alojamiento;
 
 public abstract class Hotel extends Alojamiento {
@@ -30,5 +32,18 @@ public abstract class Hotel extends Alojamiento {
 	public void setPrecioHab(double precioHab) {
 		this.precioHab = precioHab;
 	}
+	
+	
+	public Double getPrecioHab() {
+		return precioHab;
+	}
+
+
+	public static Comparator<Hotel> ordenarPrecioDesc = new Comparator<Hotel>(){
+        @Override
+        public int compare(Hotel t, Hotel t1) {
+            return t1.getPrecioHab().compareTo(t.getPrecioHab());
+        }            
+    }; 
 	
 }
