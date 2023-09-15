@@ -1,4 +1,4 @@
-package Relaciones.Ejercicio4Extra.Entity.SuperSuperclass;
+package Herencia.Ejercicio4Extra.Entity.SuperSuperclass;
 
 public abstract class Persona {
 

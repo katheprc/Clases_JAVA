@@ -1,6 +1,6 @@
-package Relaciones.Ejercicio4Extra;
+package Herencia.Ejercicio4Extra;
 
-import Relaciones.Ejercicio4Extra.Service.ServiceFacultad;
+import Herencia.Ejercicio4Extra.Service.ServiceFacultad;
 
 public class Ejercicio4Extra_main implements ServiceFacultad {
 

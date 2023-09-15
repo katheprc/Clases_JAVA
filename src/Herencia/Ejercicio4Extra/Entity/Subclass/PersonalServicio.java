@@ -1,6 +1,6 @@
-package Relaciones.Ejercicio4Extra.Entity.Subclass;
+package Herencia.Ejercicio4Extra.Entity.Subclass;
 
-import Relaciones.Ejercicio4Extra.Entity.Superclass.Empleado;
+import Herencia.Ejercicio4Extra.Entity.Superclass.Empleado;
 
 public class PersonalServicio extends Empleado {
 

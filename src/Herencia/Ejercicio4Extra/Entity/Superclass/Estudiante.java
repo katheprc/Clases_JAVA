@@ -1,6 +1,6 @@
-package Relaciones.Ejercicio4Extra.Entity.Superclass;
+package Herencia.Ejercicio4Extra.Entity.Superclass;
 
-import Relaciones.Ejercicio4Extra.Entity.SuperSuperclass.Persona;
+import Herencia.Ejercicio4Extra.Entity.SuperSuperclass.Persona;
 
 public class Estudiante extends Persona {
 
