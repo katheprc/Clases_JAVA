@@ -113,7 +113,6 @@ limit 1;
 
 
 -- 23. Hallar el salario más alto, el más bajo y la diferencia entre ellos.
-
 select max(sal_emp) as Maximo, min(sal_emp) as Minimo, (max(sal_emp)-min(sal_emp)) as Diferencia from empleados;
 
 
@@ -140,12 +139,6 @@ where sal_emp >= (select avg(sal_emp) from empleados)
 order by id_depto;
 
 
-
-
 -- ejemplo mostrar todos los empelados cuyo id sea mayor o igual a la cantidad de empleados
 select * from empleados
 where id_emp <= (select count(id_emp) from empleados);
-
-
-
-
