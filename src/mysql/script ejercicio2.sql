@@ -223,23 +223,3 @@ JOIN producto p2 ON f2.codigo = p2.codigo_fabricante
 WHERE f1.nombre = 'Lenovo'
 GROUP BY f2.nombre
 HAVING COUNT(DISTINCT p1.codigo) = COUNT(DISTINCT p2.codigo);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
