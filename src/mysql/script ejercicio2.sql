@@ -134,20 +134,111 @@ where p.precio >= 180
 order by p.precio desc, p.nombre asc
 
 
+-- --------------------------------------------------------------------------------------------------
 
 -- Consultas Multitabla  Resuelva todas las consultas utilizando las cláusulas LEFT JOIN y RIGHT JOIN.
--- 1. Devuelve un listado de todos los fabricantes que existen en la base de datos, junto con los productos que tiene cada uno de ellos. El listado deberá mostrar también aquellos fabricantes que no tienen productos asociados.
+
+-- 1. Devuelve un listado de todos los fabricantes que existen en la base de datos, junto con los productos que tiene 
+-- cada uno de ellos. El listado deberá mostrar también aquellos fabricantes que no tienen productos asociados.
+
+select * from fabricante f 
+left join producto p on p.codigo_fabricante = f.codigo 
+
+
+select * from producto p 
+right join fabricante f on p.codigo_fabricante = f.codigo 
+
+
+
 -- 2. Devuelve un listado donde sólo aparezcan aquellos fabricantes que no tienen ningún producto asociado
+
+select * from fabricante f 
+left join producto p on p.codigo_fabricante = f.codigo 
+where p.codigo_fabricante is null
+
+
+select * from producto p 
+right join fabricante f on p.codigo_fabricante = f.codigo 
+where p.codigo_fabricante is null
+
+-- -----------------------------------------------------------------------------------------------------
+
 -- Subconsultas (En la cláusula WHERE) Con operadores básicos de comparación
 -- 1. Devuelve todos los productos del fabricante Lenovo. (Sin utilizar INNER JOIN).
--- 2. Devuelve todos los datos de los productos que tienen el mismo precio que el producto más caro del fabricante Lenovo. (Sin utilizar INNER JOIN).
+
+select * from producto p 
+where codigo_fabricante = (select codigo from fabricante where nombre like "lenovo")
+
+
+select * from producto p 
+inner join fabricante f on p.codigo_fabricante = f.codigo 
+where f.nombre like "lenovo"
+
+
+-- 2. Devuelve todos los datos de los productos que tienen el mismo precio que el producto más caro del 
+-- fabricante Lenovo. (Sin utilizar INNER JOIN).
+
+select * from producto p 
+where precio  = (select max(precio) from producto where codigo_fabricante  = (select codigo from fabricante where nombre like "lenovo"))
+
+
+
+
 -- 3. Lista el nombre del producto más caro del fabricante Lenovo.
+
+select * from producto p 
+where precio = (select max(precio) from producto where codigo_fabricante = (select codigo from fabricante where nombre like "lenovo"))
+and codigo_fabricante = (select codigo from fabricante where nombre like "lenovo")
+
+
+
 -- 4. Lista todos los productos del fabricante Asus que tienen un precio superior al precio medio de todos sus productos.
+
+select * from producto p 
+where precio > (select avg(precio) from producto p2 where codigo_fabricante = (select codigo from fabricante where nombre like "asus"))
+and codigo_fabricante = (select codigo from fabricante where nombre like "asus")
+
+
+
 -- Subconsultas con IN y NOT IN
 -- 1.Devuelve los nombres de los fabricantes que tienen productos asociados. (Utilizando IN o NOT IN).
+
+select nombre from fabricante f 
+where codigo in (select codigo_fabricante from producto p)
+
+
 -- 2. Devuelve los nombres de los fabricantes que no tienen productos asociados. (Utilizando IN o NOT IN).
+select nombre from fabricante f 
+where codigo not in (select codigo_fabricante from producto p)
+
+
 -- Subconsultas (En la cláusula HAVING)
--- 1.Devuelve un listado con todos los nombres de los fabricantes que tienen el mismo número de productos que el fabricante Lenovo.
+-- 1.Devuelve un listado con todos los nombres de los fabricantes que tienen el mismo número de productos 
+-- que el fabricante Lenovo.
+
+SELECT f2.nombre FROM fabricante f1
+JOIN fabricante f2 ON f1.codigo <> f2.codigo
+JOIN producto p1 ON f1.codigo = p1.codigo_fabricante
+JOIN producto p2 ON f2.codigo = p2.codigo_fabricante
+WHERE f1.nombre = 'Lenovo'
+GROUP BY f2.nombre
+HAVING COUNT(DISTINCT p1.codigo) = COUNT(DISTINCT p2.codigo);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
