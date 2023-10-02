@@ -4,7 +4,7 @@
 		"mysql8-18acd4d3a76-551745f30f44ff0": {
 			"provider": "mysql",
 			"driver": "mysql8",
-			"name": "personal",
+			"name": "databases",
 			"save-password": true,
 			"configuration": {
 				"host": "localhost",
@@ -20,8 +20,23 @@
 					"enabledTLSProtocols": "TLSv1,TLSv1.1,TLSv1.2",
 					"allowPublicKeyRetrieval": "true"
 				},
-				"auth-model": "native",
-				"handlers": {}
+				"auth-model": "native"
+			}
+		},
+		"mysql8-18af19239c4-7fda71b6c100fa99": {
+			"provider": "mysql",
+			"driver": "mysql8",
+			"name": "eggmysqlej1extra",
+			"save-password": true,
+			"configuration": {
+				"host": "localhost",
+				"port": "3306",
+				"database": "eggmysqlej1extra",
+				"url": "jdbc:mysql://localhost:3306/eggmysqlej1extra",
+				"configurationType": "MANUAL",
+				"home": "C:\\Program Files\\MySQL\\MySQL Server 8.0",
+				"type": "dev",
+				"auth-model": "native"
 			}
 		}
 	},

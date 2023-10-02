@@ -1,1 +1,1 @@
-{"resources":{"src/mysql/script ejercicio1.sql":{"default-datasource":"mysql8-18acd4d3a76-551745f30f44ff0","default-catalog":"personal"}}}
+{"resources":{"src/mysql/script ejercicio1.sql":{"default-datasource":"mysql8-18acd4d3a76-551745f30f44ff0","default-catalog":"personal"},"src/mysql/script ejercicio1E.sql":{"default-datasource":"mysql8-18acd4d3a76-551745f30f44ff0"},"src/mysql/script ejercicio2.sql":{"default-datasource":"mysql8-18acd4d3a76-551745f30f44ff0","default-catalog":"tienda"}}}
