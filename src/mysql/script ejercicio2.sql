@@ -217,9 +217,47 @@ where codigo not in (select codigo_fabricante from producto p)
 -- que el fabricante Lenovo.
 
 SELECT f2.nombre FROM fabricante f1
-JOIN fabricante f2 ON f1.codigo <> f2.codigo
 JOIN producto p1 ON f1.codigo = p1.codigo_fabricante
+
+JOIN fabricante f2 ON f1.codigo <> f2.codigo
 JOIN producto p2 ON f2.codigo = p2.codigo_fabricante
+
 WHERE f1.nombre = 'Lenovo'
+
 GROUP BY f2.nombre
+
 HAVING COUNT(DISTINCT p1.codigo) = COUNT(DISTINCT p2.codigo);
+
+
+
+
+-- SELECT f1.nombre, COUNT(DISTINCT p1.codigo) FROM fabricante f1
+-- JOIN producto p1 ON f1.codigo = p1.codigo_fabricante
+-- WHERE f1.nombre = 'Lenovo'
+
+
+-- SELECT f1.nombre, COUNT(DISTINCT p1.codigo) FROM fabricante f1
+-- JOIN producto p1 ON f1.codigo = p1.codigo_fabricante
+-- GROUP BY f1.nombre
+
+
+
+-- f1 p1 ==== condiciones      -> cantidad de productos que tiene lenovo                 2 productos
+
+
+-- f2 p2 ==== comparaciones    -> cantidad de productos que tiene lenovo con el resto
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
