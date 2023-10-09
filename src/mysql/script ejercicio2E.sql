@@ -3,7 +3,6 @@
 select codigo_oficina, ciudad from oficina o 
 
 
-
 -- 2. Devuelve un listado con la ciudad y el teléfono de las oficinas de España.
 
 select ciudad, telefono from oficina o 
@@ -161,7 +160,7 @@ inner join empleado e on c.codigo_empleado_rep_ventas = e.codigo_empleado
 
 
 
--- 2. Muestra el nombre de los clientes que hayan realizado pagos junto con el nombre de sus
+-- 2. Muestra el nombre de los clientes (que hayan realizado pagos) junto con el nombre de sus
 -- representantes de ventas.
 
 select distinct c.nombre_cliente, e.nombre, c.codigo_cliente  from cliente c 
@@ -169,7 +168,21 @@ inner join empleado e on c.codigo_empleado_rep_ventas = e.codigo_empleado
 inner join pago p on p.codigo_cliente = c.codigo_cliente 
 
 
--- 3. Muestra el nombre de los clientes que no hayan realizado pagos junto con el nombre de
+
+select distinct c.nombre_cliente, e.nombre, c.codigo_cliente  from cliente c 
+inner join empleado e on c.codigo_empleado_rep_ventas = e.codigo_empleado 
+right join pago p on p.codigo_cliente = c.codigo_cliente 
+order by c.codigo_cliente 
+
+
+
+select distinct c.nombre_cliente, e.nombre, c.codigo_cliente  from cliente c 
+inner join empleado e on c.codigo_empleado_rep_ventas = e.codigo_empleado 
+where c.codigo_cliente in (select codigo_cliente from pago p)
+order by c.codigo_cliente 
+
+
+-- 3. Muestra el nombre de los clientes (que no hayan realizado pagos) junto con el nombre de
 -- sus representantes de ventas.
 
 select distinct c.nombre_cliente, e.nombre, c.codigo_cliente  from cliente c 
@@ -181,14 +194,85 @@ where c.codigo_cliente not in (select p.codigo_cliente from pago p)
 
 -- 4. Devuelve el nombre de los clientes que han hecho pagos y el nombre de sus representantes
 -- junto con la ciudad de la oficina a la que pertenece el representante.
+
+select distinct c.nombre_cliente, e.nombre, o.ciudad from cliente c 
+inner join empleado e on c.codigo_empleado_rep_ventas = e.codigo_empleado 
+inner join oficina o on e.codigo_oficina = o.codigo_oficina 
+inner join pago p on c.codigo_cliente = p.codigo_cliente 
+
+
+select distinct c.nombre_cliente, e.nombre, o.ciudad from cliente c 
+inner join empleado e on c.codigo_empleado_rep_ventas = e.codigo_empleado 
+inner join oficina o on e.codigo_oficina = o.codigo_oficina 
+where c.codigo_cliente in (select codigo_cliente from pago p)
+
+
 -- 5. Devuelve el nombre de los clientes que no hayan hecho pagos y el nombre de sus
 -- representantes junto con la ciudad de la oficina a la que pertenece el representante.
+
+select distinct c.nombre_cliente, e.nombre, o.ciudad from cliente c 
+inner join empleado e on c.codigo_empleado_rep_ventas = e.codigo_empleado 
+inner join oficina o on e.codigo_oficina = o.codigo_oficina 
+where c.codigo_cliente not in (select codigo_cliente from pago)
+
+
+
+
 -- 6. Lista la dirección de las oficinas que tengan clientes en Fuenlabrada.
+
+select distinct o.linea_direccion1, c.ciudad  from oficina o 
+inner join empleado e on o.codigo_oficina = e.codigo_oficina 
+inner join cliente c on e.codigo_empleado = c.codigo_empleado_rep_ventas 
+where c.ciudad like "fuenlabrada"
+
+
+
 -- 7. Devuelve el nombre de los clientes y el nombre de sus representantes junto con la ciudad
 -- de la oficina a la que pertenece el representante.
+
+select c.nombre_cliente, e.nombre, o.ciudad from cliente c 
+inner join empleado e on c.codigo_empleado_rep_ventas = e.codigo_empleado 
+inner join oficina o on e.codigo_oficina = o.codigo_oficina 
+
+
+
+
 -- 8. Devuelve un listado con el nombre de los empleados junto con el nombre de sus jefes.
+
+select e2.nombre, e.nombre  from empleado e 
+inner join empleado e2 on e2.codigo_jefe = e.codigo_empleado 
+
+
+
+
 -- 9. Devuelve el nombre de los clientes a los que no se les ha entregado a tiempo un pedido.
+
+select distinct c.nombre_cliente from cliente c 
+inner join pedido p on c.codigo_cliente = p.codigo_cliente 
+where p.fecha_entrega > p.fecha_esperada 
+
+select distinct c.nombre_cliente from cliente c 
+where c.codigo_cliente in (select p.codigo_cliente from pedido p where p.fecha_entrega > p.fecha_esperada)
+
 -- 10. Devuelve un listado de las diferentes gamas de producto que ha comprado cada cliente.
+
+--  cliente - pedido - detalle_pedido - producto
+
+select distinct c.nombre_cliente, pr.gama from cliente c 
+inner join pedido pe            on c.codigo_cliente = pe.codigo_cliente 
+inner join detalle_pedido dp    on pe.codigo_pedido = dp.codigo_pedido 
+inner join producto pr          on dp.codigo_producto = pr.codigo_producto 
+
+
+
+
+select distinct c.nombre_cliente, gp.gama from cliente c 
+inner join pedido pe            on c.codigo_cliente = pe.codigo_cliente 
+inner join detalle_pedido dp    on pe.codigo_pedido = dp.codigo_pedido 
+inner join producto pr          on dp.codigo_producto = pr.codigo_producto 
+inner join gama_producto gp     on pr.gama = gp.gama 
+
+
 -- Consultas multitabla (Composición externa)
 -- Resuelva todas las consultas utilizando las cláusulas LEFT JOIN, RIGHT JOIN, JOIN.
 -- 1. Devuelve un listado que muestre solamente los clientes que no han realizado ningún pago.

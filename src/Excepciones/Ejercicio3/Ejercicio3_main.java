@@ -8,15 +8,14 @@ public class Ejercicio3_main {
 
 		DivisionNumero divNum = new DivisionNumero();
 
-		Scanner leer = new Scanner(System.in);
-
 		do {
+			Scanner leer = new Scanner(System.in);
 
 			try {
 
 				String num1 = leer.nextLine();
 				String num2 = leer.nextLine();
-				
+
 				System.out.println(num1 + "/" + num2 + " = " + divNum.dividir(num1, num2));
 
 			} catch (Exception ex) {
@@ -28,8 +27,11 @@ public class Ejercicio3_main {
 				System.out.println("Error 3: " + ex.fillInStackTrace());
 
 			}
-			
+
+			leer.close();
+
 		} while (true);
+
 	}
 
 }
