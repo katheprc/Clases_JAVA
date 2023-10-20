@@ -309,54 +309,54 @@ inner join gama_producto gp     on pr.gama = gp.gama
 -- 13. Calcula la suma de la cantidad total de todos los productos que aparecen en cada uno de
 -- los pedidos.
 -- 14. Devuelve un listado de los 20 productos más vendidos y el número total de unidades que
-se han vendido de cada uno. El listado deberá estar ordenado por el número total de
-unidades vendidas.
-15. La facturación que ha tenido la empresa en toda la historia, indicando la base imponible, el
-IVA y el total facturado. La base imponible se calcula sumando el coste del producto por el
-número de unidades vendidas de la tabla detalle_pedido. El IVA es el 21 % de la base
-imponible, y el total la suma de los dos campos anteriores.
-16. La misma información que en la pregunta anterior, pero agrupada por código de producto.
-17. La misma información que en la pregunta anterior, pero agrupada por código de producto
-filtrada por los códigos que empiecen por OR.
-18. Lista las ventas totales de los productos que hayan facturado más de 3000 euros. Se
-mostrará el nombre, unidades vendidas, total facturado y total facturado con impuestos (21%
-IVA)
-Subconsultas con operadores básicos de comparación
-1.
-Devuelve el nombre del cliente con mayor límite de crédito.
-2. Devuelve el nombre del producto que tenga el precio de venta más caro.
-3. Devuelve el nombre del producto del que se han vendido más unidades. (Tenga en cuenta
-que tendrá que calcular cuál es el número total de unidades que se han vendido de cada
-producto a partir de los datos de la tabla detalle_pedido. Una vez que sepa cuál es el código
-del producto, puede obtener su nombre fácilmente.)
-4. Los clientes cuyo límite de crédito sea mayor que los pagos que haya realizado. (Sin utilizar
-INNER JOIN).
-5. Devuelve el producto que más unidades tiene en stock.
-6. Devuelve el producto que menos unidades tiene en stock.
-7. Devuelve el nombre, los apellidos y el email de los empleados que están a cargo de Alberto
-Soria.
-Subconsultas con ALL y ANY
-1.
-Devuelve el nombre del cliente con mayor límite de crédito.
-2. Devuelve el nombre del producto que tenga el precio de venta más caro.
-3. Devuelve el producto que menos unidades tiene en stock.
-Subconsultas con IN y NOT IN
-1.
-Devuelve el nombre, apellido1 y cargo de los empleados que no representen a ningún
-cliente.
-2. Devuelve un listado que muestre solamente los clientes que no han realizado ningún pago.
-3. Devuelve un listado que muestre solamente los clientes que sí han realizado ningún pago.
-53
-4. Devuelve un listado de los productos que nunca han aparecido en un pedido.
-5. Devuelve el nombre, apellidos, puesto y teléfono de la oficina de aquellos empleados que
-no sean representante de ventas de ningún cliente.
-Subconsultas con EXISTS y NOT EXISTS
-1.
-Devuelve un listado que muestre solamente los clientes que no han realizado ningún
-pago.
-2. Devuelve un listado que muestre solamente los clientes que sí han realizado ningún pago.
-3. Devuelve un listado de los productos que nunca han aparecido en un pedido.
-4. Devuelve un listado de los productos que han aparecido en un pedido alguna vez.
+-- se han vendido de cada uno. El listado deberá estar ordenado por el número total de
+-- unidades vendidas.
+-- 15. La facturación que ha tenido la empresa en toda la historia, indicando la base imponible, el
+-- IVA y el total facturado. La base imponible se calcula sumando el coste del producto por el
+-- número de unidades vendidas de la tabla detalle_pedido. El IVA es el 21 % de la base
+-- imponible, y el total la suma de los dos campos anteriores.
+-- 16. La misma información que en la pregunta anterior, pero agrupada por código de producto.
+-- 17. La misma información que en la pregunta anterior, pero agrupada por código de producto
+-- filtrada por los códigos que empiecen por OR.
+-- 18. Lista las ventas totales de los productos que hayan facturado más de 3000 euros. Se
+-- mostrará el nombre, unidades vendidas, total facturado y total facturado con impuestos (21%
+-- IVA)
+-- Subconsultas con operadores básicos de comparación
+-- 1.
+-- Devuelve el nombre del cliente con mayor límite de crédito.
+-- 2. Devuelve el nombre del producto que tenga el precio de venta más caro.
+-- 3. Devuelve el nombre del producto del que se han vendido más unidades. (Tenga en cuenta
+-- que tendrá que calcular cuál es el número total de unidades que se han vendido de cada
+-- producto a partir de los datos de la tabla detalle_pedido. Una vez que sepa cuál es el código
+-- del producto, puede obtener su nombre fácilmente.)
+-- 4. Los clientes cuyo límite de crédito sea mayor que los pagos que haya realizado. (Sin utilizar
+-- INNER JOIN).
+-- 5. Devuelve el producto que más unidades tiene en stock.
+-- 6. Devuelve el producto que menos unidades tiene en stock.
+-- 7. Devuelve el nombre, los apellidos y el email de los empleados que están a cargo de Alberto
+-- Soria.
+-- Subconsultas con ALL y ANY
+-- 1.
+-- Devuelve el nombre del cliente con mayor límite de crédito.
+-- 2. Devuelve el nombre del producto que tenga el precio de venta más caro.
+-- 3. Devuelve el producto que menos unidades tiene en stock.
+-- Subconsultas con IN y NOT IN
+-- 1.
+-- Devuelve el nombre, apellido1 y cargo de los empleados que no representen a ningún
+-- cliente.
+-- 2. Devuelve un listado que muestre solamente los clientes que no han realizado ningún pago.
+-- 3. Devuelve un listado que muestre solamente los clientes que sí han realizado ningún pago.
+-- 53
+-- 4. Devuelve un listado de los productos que nunca han aparecido en un pedido.
+-- 5. Devuelve el nombre, apellidos, puesto y teléfono de la oficina de aquellos empleados que
+-- no sean representante de ventas de ningún cliente.
+-- Subconsultas con EXISTS y NOT EXISTS
+-- 1.
+-- Devuelve un listado que muestre solamente los clientes que no han realizado ningún
+-- pago.
+-- 2. Devuelve un listado que muestre solamente los clientes que sí han realizado ningún pago.
+-- 3. Devuelve un listado de los productos que nunca han aparecido en un pedido.
+-- 4. Devuelve un listado de los productos que han aparecido en un pedido alguna vez.
 
 
 
