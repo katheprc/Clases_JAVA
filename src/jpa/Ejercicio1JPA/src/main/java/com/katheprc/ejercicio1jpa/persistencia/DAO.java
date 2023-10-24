@@ -6,9 +6,8 @@ import javax.persistence.Persistence;
 
 public abstract class DAO<T> {
 
-    protected final EntityManagerFactory EMF = Persistence.createEntityManagerFactory("PU");
+    protected final EntityManagerFactory EMF = Persistence.createEntityManagerFactory("ejercicio1PU");
     protected EntityManager em = EMF.createEntityManager();
-    
 
     protected void conectar() {
         if (!em.isOpen()) {

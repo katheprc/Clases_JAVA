@@ -1,112 +1,114 @@
 package com.katheprc.ejercicio1jpa.entidades;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class Libro {
+public class Libro implements Serializable {
+    
+    @Id
+    private long isbn;
+   
+    private String titulo;
+    private Integer anio, ejemplares, ejemplaresP, ejemplaresR;
+    private boolean alta;
+   
+    
+    @ManyToOne
+    private Autor autor;
+    
+    @ManyToOne
+    private Editorial editorial;
 
-	@Id
-	private long isbn;
+    public Libro() {
+    }
 
-	private String titulo;
-	private Integer anio, ejemplares, ejemplaresP, ejemplaresR;
-	private boolean alta;
+    public Libro(long isbn, String titulo, Integer anio, Integer ejemplares, Integer ejemplaresP, Integer ejemplaresR, boolean alta, Autor autor, Editorial editorial) {
+        this.isbn = isbn;
+        this.titulo = titulo;
+        this.anio = anio;
+        this.ejemplares = ejemplares;
+        this.ejemplaresP = ejemplaresP;
+        this.ejemplaresR = ejemplaresR;
+        this.alta = alta;
+        this.autor = autor;
+        this.editorial = editorial;
+    }
 
-	@OneToOne
-	private Autor autor;
+    public long getIsbn() {
+        return isbn;
+    }
 
-	@OneToOne
-	private Editorial editorial;
+    public void setIsbn(long isbn) {
+        this.isbn = isbn;
+    }
 
-	public Libro() {
-		super();
-	}
+    public String getTitulo() {
+        return titulo;
+    }
 
-	public Libro(long isbn, String titulo, Integer anio, Integer ejemplares, Integer ejemplaresP, Integer ejemplaresR,
-			boolean alta, Autor autor, Editorial editorial) {
-		this.isbn = isbn;
-		this.titulo = titulo;
-		this.anio = anio;
-		this.ejemplares = ejemplares;
-		this.ejemplaresP = ejemplaresP;
-		this.ejemplaresR = ejemplaresR;
-		this.alta = alta;
-		this.autor = autor;
-		this.editorial = editorial;
-	}
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
 
-	public long getIsbn() {
-		return isbn;
-	}
+    public Integer getAnio() {
+        return anio;
+    }
 
-	public void setIsbn(long isbn) {
-		this.isbn = isbn;
-	}
+    public void setAnio(Integer anio) {
+        this.anio = anio;
+    }
 
-	public String getTitulo() {
-		return titulo;
-	}
+    public Integer getEjemplares() {
+        return ejemplares;
+    }
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
+    public void setEjemplares(Integer ejemplares) {
+        this.ejemplares = ejemplares;
+    }
 
-	public Integer getAnio() {
-		return anio;
-	}
+    public Integer getEjemplaresP() {
+        return ejemplaresP;
+    }
 
-	public void setAnio(Integer anio) {
-		this.anio = anio;
-	}
+    public void setEjemplaresP(Integer ejemplaresP) {
+        this.ejemplaresP = ejemplaresP;
+    }
 
-	public Integer getEjemplares() {
-		return ejemplares;
-	}
+    public Integer getEjemplaresR() {
+        return ejemplaresR;
+    }
 
-	public void setEjemplares(Integer ejemplares) {
-		this.ejemplares = ejemplares;
-	}
+    public void setEjemplaresR(Integer ejemplaresR) {
+        this.ejemplaresR = ejemplaresR;
+    }
 
-	public Integer getEjemplaresP() {
-		return ejemplaresP;
-	}
+    public boolean isAlta() {
+        return alta;
+    }
 
-	public void setEjemplaresP(Integer ejemplaresP) {
-		this.ejemplaresP = ejemplaresP;
-	}
+    public void setAlta(boolean alta) {
+        this.alta = alta;
+    }
 
-	public Integer getEjemplaresR() {
-		return ejemplaresR;
-	}
+    public Autor getAutor() {
+        return autor;
+    }
 
-	public void setEjemplaresR(Integer ejemplaresR) {
-		this.ejemplaresR = ejemplaresR;
-	}
+    public void setAutor(Autor autor) {
+        this.autor = autor;
+    }
 
-	public boolean isAlta() {
-		return alta;
-	}
+    public Editorial getEditorial() {
+        return editorial;
+    }
 
-	public void setAlta(boolean alta) {
-		this.alta = alta;
-	}
-
-	public Autor getAutor() {
-		return autor;
-	}
-
-	public void setAutor(Autor autor) {
-		this.autor = autor;
-	}
-
-	public Editorial getEditorial() {
-		return editorial;
-	}
-
-	public void setEditorial(Editorial editorial) {
-		this.editorial = editorial;
-	}
-
+    public void setEditorial(Editorial editorial) {
+        this.editorial = editorial;
+    }
+    
+    
+    
 }
