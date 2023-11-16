@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Guardar Profesor</title>
+    </head>
+
+
+
+    <body>
+
+        <h1>Guardar profesor</h1>
+        <form action="/guardar/exitoso" method="get">
+
+            <input type="text" class="form-control" name="nombre" placeholder="Ej: Juan Perez">
+            <br><br>
+            <input type="text" class="form-control" name="materia" placeholder="Ej: Matematica">
+            <br><br>
+            <input type="text" class="form-control" name="turno" placeholder="Ej: Mañana">
+            <br><br>
+            <button type="submit" class="btn btn-outline-primary">Guardar</button>
+
+        </form>
+
+        <a href="/"><button type="button" class="btn btn-dark">Volver</button></a>
+
+    </body>
+
+</html>
